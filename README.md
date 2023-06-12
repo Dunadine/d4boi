@@ -1,5 +1,22 @@
+# Aspect Tracker Application
 
-3. Follow the prompts to select a character class, manage aspects, and add or delete entries for aspects.
+The Aspect Tracker Application is a command-line tool that allows users to track and manage aspects for different character classes in a role-playing game (RPG).
+
+## Setup
+
+1. Clone the repository or download the source code files to your local machine.
+
+2. Make sure you have Python 3.x installed on your system.
+
+3. Install the required dependencies by running the following command:
+
+## Usage
+
+1. Open a terminal or command prompt and navigate to the directory where you cloned or downloaded the application.
+
+2. Run the `main.py` script using Python:
+
+4. Follow the prompts to select a character class, manage aspects, and add or delete entries for aspects.
 
 4. The application will display the aspect table with the current entries after each modification.
 
