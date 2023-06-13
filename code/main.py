@@ -23,6 +23,7 @@ def print_aspect_table(aspect_details):
         aspect_name, dynamic_value_1, dynamic_value_2 = aspect_detail
         print(f"{index:<4} {aspect_name.ljust(28)}{dynamic_value_1.ljust(28)}{dynamic_value_2}")
 
+
 def search_aspect(aspect_details, general_aspects, class_aspects):
     search_term = input("Enter the aspect name to search for: ").lower()
     matching_entries = [entry for entry in aspect_details if search_term in entry[0].lower()]
@@ -47,7 +48,7 @@ def search_aspect(aspect_details, general_aspects, class_aspects):
                 print("Invalid input.")
     else:
         print("No matching entries found.")
-        
+
         # Check in the provided aspect list
         matching_provided_aspects = []
         for aspect_number, aspect_name in general_aspects.items():
@@ -56,12 +57,12 @@ def search_aspect(aspect_details, general_aspects, class_aspects):
         for aspect_number, aspect_name in class_aspects.items():
             if search_term in aspect_name.lower():
                 matching_provided_aspects.append(aspect_name)
-        
+
         if matching_provided_aspects:
             print("Matching Aspects from the provided list:")
             for index, aspect_name in enumerate(matching_provided_aspects, start=1):
                 print(f"{index}. {aspect_name}")
-            
+
             add_entry = input("Do you want to add one of these aspects? (y/n): ")
             if add_entry.lower() == 'y':
                 add_input = input("Enter the number of the aspect to add (or 'c' to cancel): ")
@@ -81,7 +82,6 @@ def search_aspect(aspect_details, general_aspects, class_aspects):
                     print("Invalid input.")
         else:
             print("No matching aspects in the provided list.")
-
 
 
 def create_plain_text_table():
@@ -170,16 +170,12 @@ def create_plain_text_table():
             print()
 
         print('\n')
-        aspect_input = input("Enter the number for the aspect (or 's' to search for an aspect, 'd' to delete one of your aspects, 'q' to quit, ): ")
+        aspect_input = input("Enter the number for the aspect (or 's' to search for an aspect, 'd' to delete one of your aspects, 'v' to view your aspects, 'q' to quit): ")
         if aspect_input == 'q':
             break
         elif aspect_input == 's':
             search_aspect(aspect_details, general_aspects, class_aspects)
             continue
-        elif aspect_input == 'd' or aspect_input == 'v':
-            if aspect_details:
-               print("Your Aspect Entries:")
-               print_aspect_table(aspect_details)
         elif aspect_input == 'd':
             print_aspect_table(aspect_details)
             delete_input = input("Enter the number of the aspect to delete (or 'c' to cancel): ")
@@ -196,6 +192,10 @@ def create_plain_text_table():
             except ValueError:
                 print("Invalid input.")
             continue
+        elif aspect_input == 'v':
+            print("Your Aspect Entries:")
+            print_aspect_table(aspect_details)
+            break
 
         aspect_index = int(aspect_input)
 
@@ -230,29 +230,31 @@ def create_plain_text_table():
                     print("Invalid input.")
                 continue
 
-        add_new_entry = input(f"Do you want to add a new entry for aspect '{aspect_name}'? (y/n): ")
-        if add_new_entry.lower() == 'n':
-            continue
+        add_new_entry = input(f"Do you want to add aspect {aspect_name}? Enter the number (or 'n' to skip): ")
 
-        dynamic_value_1 = input(f"Enter the dynamic value for {aspect_name}: ")
-        dynamic_value_2 = input("Enter the optional second dynamic value (leave blank if none): ")
+        if add_new_entry.isdigit():
+            aspect_index = int(add_new_entry)
+            if aspect_index == aspect_number:
+                dynamic_value_1 = input(f"Enter the dynamic value for {aspect_name}: ")
+                dynamic_value_2 = input("Enter the optional second dynamic value (leave blank if none): ")
 
-        # Validate input as numbers
-        if not dynamic_value_1.isdigit():
-            print("Invalid input. Dynamic Value 1 must be a number.")
-            continue
-        if dynamic_value_2 and not dynamic_value_2.isdigit():
-            print("Invalid input. Dynamic Value 2 must be a number.")
-            continue
+                # Validate input as numbers
+                if not dynamic_value_1.isdigit():
+                    print("Invalid input. Dynamic Value 1 must be a number.")
+                    continue
+                if dynamic_value_2 and not dynamic_value_2.isdigit():
+                    print("Invalid input. Dynamic Value 2 must be a number.")
+                    continue
 
-        aspect_details.append((aspect_name, dynamic_value_1, dynamic_value_2))
+                aspect_details.append((aspect_name, dynamic_value_1, dynamic_value_2))
 
-        row = f"{aspect_name.ljust(28)}{dynamic_value_1.ljust(28)}{dynamic_value_2}\n"
-        table += row
-        num_aspects_added += 1
+                row = f"{aspect_name.ljust(28)}{dynamic_value_1.ljust(28)}{dynamic_value_2}\n"
+                table += row
+                num_aspects_added += 1
 
-        if num_aspects_added == 3:
-            num_aspects_added = 0
+                if num_aspects_added == 3:
+                    num_aspects_added = 0
+                continue
 
     aspect_details.sort(key=lambda x: x[0])
 
