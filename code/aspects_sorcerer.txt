@@ -1,2 +1,4 @@
 Aspect Name                Dynamic Value 1           Dynamic Value 2
 ------------------------------------------------------------------------
+Burning Pyre                25                          
+Overload                    25                          
