@@ -2,6 +2,12 @@
 
 The Aspect Tracker Application is a command-line tool that allows users to track and manage aspects for different character classes in a role-playing game (RPG).
 
+![Screenshot 2023-06-12 201033](https://github.com/Dunadine/d4boi/assets/68076384/b7031839-fe24-4fdd-90b5-fe1b8221c8a4)
+
+![Screenshot 2023-06-12 201047](https://github.com/Dunadine/d4boi/assets/68076384/120acc15-ccdb-4fbf-be91-42657244142f)
+
+![Screenshot 2023-06-12 201219](https://github.com/Dunadine/d4boi/assets/68076384/c883bee8-b4f7-477a-96c4-afae98d798d8)
+
 ## Setup
 
 1. Clone the repository or download the source code files to your local machine.
