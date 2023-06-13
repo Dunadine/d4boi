@@ -135,10 +135,10 @@ def create_plain_text_table():
             print()
 
         print('\n')
-        aspect_input = input("Enter the number for the aspect (or 's' to search for an aspect, 'd' to delete one of your aspects, 'q' to quit, ): ")
+        aspect_input = input("Enter the number for the aspect (or 's' to search for an aspect, 'v' to view / delete one of your aspects, 'q' to quit, ): ")
         if aspect_input == 'q':
             break
-        elif aspect_input == 'd':
+        elif aspect_input == 'd' or aspect_input == 'v':
             print_aspect_table(aspect_details)
             delete_input = input("Enter the number of the aspect to delete (or 'c' to cancel): ")
             if delete_input == 'c':
