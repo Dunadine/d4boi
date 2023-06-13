@@ -10,6 +10,24 @@ The Aspect Tracker Application is a command-line tool that allows users to track
 
 3. Install the required dependencies by running the following command:
 
+```
+To run the application, you will need to execute the following commands in the terminal:
+
+Make sure you have Python installed on your system. You can check by running the command: python --version. If Python is not installed, you can download and install it from the official Python website: https://www.python.org/downloads/
+
+Navigate to the directory where you have saved the main.py file using the cd command. For example, if the file is located in the "Documents" folder, you can use: cd Documents to navigate to that directory.
+
+Install the necessary dependencies by running the command: pip install pyfiglet. This will install the pyfiglet package, which is used for ASCII art generation.
+
+Once the dependencies are installed, you can run the application by executing the command: python main.py. This will start the program and display the initial prompt.
+
+Follow the instructions provided by the application to select your class, enter aspect details, view aspects, delete aspects, and perform other actions.
+
+When you choose to quit the application, the aspect details will be saved to a file, and the file path will be displayed in the terminal.
+
+Note: Make sure you have write permissions for the directory where the application is located, as it will create and modify files in that directory.
+```
+
 ## Usage
 
 1. Open a terminal or command prompt and navigate to the directory where you cloned or downloaded the application.
